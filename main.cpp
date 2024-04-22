@@ -15,6 +15,7 @@ class Ugc_conf{
 
 public:
     char serial[9]; // 保存设备串号
+    struct utsname uname_s; // 保存设备信息
     usbg_gadget_attrs *usbg_gca; // USB gadget device attributes
     usbg_gadget_strs *usbg_gcs; // USB gadget device strings
 
@@ -24,7 +25,6 @@ public:
 
 Ugc_conf::Ugc_conf(uint16_t idVendor, uint16_t idProduct)
 {
-    struct utsname uname_s; // 保存设备信息
     uname(&uname_s); // 获取设备信息
     
     // 获取设备id
